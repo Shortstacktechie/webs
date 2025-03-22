@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign_up</title>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  :root{
+    --Test_color: beige;
+  }
+  label, input{
+    display: block;
+  }
+  a{
+    color: beige;
+    text-decoration: none;
+  }
+  body{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(signIn_page/images/pexels-lastly-937782.jpg);
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      height: 100vh;
+      font-family: "Lora", serif;
+      color: var(--Test_color);
+      position: relative;
+      height: 100%;
+  }
+  nav ul{
+    display: flex;
+    flex-wrap:wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    font-size: 13px;
+  }
+  nav ul li{
+    list-style-type: none;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+  }
+  .main{
+   display: grid;
+   place-content: center;
+   height: 90vh;
+  }
+  .main > h2{
+    display: none;
+  }
+  .main_div{
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* width: 50vw; */
+    height: fit-content;
+  }
+  .intro{
+    background-image:linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(signIn_page/images/pexels-lastly-937782.jpg);
+    border-radius: 10px 0px 0px 10px;
+    text-align: center;
+    padding: 10px;
+    background-size: cover;
+    background-position: center;
+    width: 45%;
+  }
+  .intro-content {
+    margin-bottom: 20px;
+  }
+  .intro-content h2 {
+    font-size: 2em;
+    font-weight: 100;
+    margin: 2em 0px 1.8em 0px;
+    font-size: 200;
+    color: #ff8181;
+    box-shadow: 0.3px 0.3px 2px#ff8181;
+  }
+  .intro-content p,.signin-prompt p, .form_section > p {
+    font-size: 15px;
+    font-weight:  200;
+    letter-spacing: 0.3px;
+    
+  }
+  .signin-prompt {
+    margin-top: 2rem;
+  }
+  .signin-prompt p {
+    margin-bottom: 10px;
+  }
+  .signin-button,.signup-button, .redirect-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff8181;
+    color: var(--Test_color);
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .signin-button:hover, .signup-button:hover,.redirect-button:hover {
+    background-color: #ff4d4d;
+  }
+  .form_section{
+    width: 55%;
+    padding: 30px 10px 10px 10px;
+  }
+  .form_section > p{
+    display: none;
+  }
+  .form_section input, .form_section input:focus {
+    background-color: rgba(255, 129, 129, 0.2);
+    border: 1.2px solid beige;
+    height: 32px;
+    border-radius: 5px;
+    color: var(--Test_color);
+    font-size: 13px;
+    padding: 5px 0px 5px 5px
+
+  }
+  .form_section label {
+    font-size: 13px;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    color: beige;
+    letter-spacing: 0.3px;
+  }
+  .registration_info{
+    display: flex;
+    gap: 10px;
+   flex-wrap: wrap;
+  }
+  .registration_info label{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .registration_info2 label input{
+    width: 100%;
+  }
+  .signup-button, .redirect-button{
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .log_in{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); 
+    /*background-image: url(./images/pexels-nelemson-g-413074398-30961538.jpg);*/
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    display: none; 
+    place-content: center;
+    height: 100%;
+  }
+  .js_log-in_style{ display: grid;} /*add this to log in in js*/
+
+  .log_in_form{
+    border: 1px solid beige;
+    padding: 20px 10px;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+  }
+  .log_in_form input{
+    width: 100%;
+    height: 35px;
+  }
+  .user_help{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    font-size: 12px;
+  }
+  .user_help a{
+    text-decoration: underline;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+  }
+  .show_later{
+    font-size: 12px;
+    text-align: center;
+    display: none;
+  }
+  .show_later p a:hover{
+    color: #ff8181;
+    text-decoration: underline;
+  }
+  
+  @media screen and (max-width: 870px) {
+    body{
+      padding: 10px;
+      background-repeat: no-repeat;
+      background-position: cover;
+      background-clip: unset;
+    }
+  }
+  @media screen and (max-width: 450px){
+    .show_later{display: block;}
+    .intro{display: none;}
+    .main > h2{
+      display: block;
+      font-size: 2em;
+      font-weight: 100;
+      font-size: 200;
+      color: #ff8181;
+      text-align: center;
+      padding: 30px 0px 10px 0px;
+    }
+    .form_section{
+      background-image:linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/pexels-lastly-937782.jpg);
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      border-radius: 10px 10px 10px 10px;
+    }
+   
+  }
+  
+</style>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">home</a></li>
+      <li><a href="#">about</a></li>
+      <li><a href="#">contact</a></li>
+      <li><a href="#">gallery</a></li>
+    </ul>
+  </nav>
+  <div class="main">
+    <h2>Welcome!</h2>
+    <div class="main_div">
+      <section class="intro">
+        <div class="intro-content">
+          <h2>Welcome!</h2>
+          <p>Enter your details to sign up and be part of this great community</p>
+        </div>
+        <div class="signin-prompt">
+          <p>Already have an account?</p>
+          <button class="signin-button js_loginLink">Log in</button>
+        </div>
+      </section>
+      <section class="form_section">
+        <p>Enter your details to sign up and be part of this great community</p>
+        <form action="">
+          <div class="registration_info">
+            <label for="first_name">first name
+              <input type="text" name="fname" id="first_name" autocomplete="">
+            </label>
+            <label for="second_name">second name
+              <input type="text" name="sname" id="second_name"  autocomplete="">
+            </label>
+          </div>
+          <div class="registration_info2">
+            <label for="Username">username
+              <input type="text" name="username" id="Username" autocomplete="">
+            </label>
+            <label for="email">email
+              <input type="email" name="email" id="email" autocomplete="">
+            </label>
+            <label for="password">password
+              <input type="password" name="password" id="password" autocomplete="">
+            </label>
+            <button class="redirect-button">Sign Up</button>
+            
+          </div>
+          <div class="show_later">
+            <p>Already have an account? <a class="js_log_btn2 js_loginLink" >Log in</a></p>
+          </div>
+          <a href="/log_in/index.html" style="display: none;" id="login_Link"></a>
+        </form>
+
+        <div class="log_in js_log-in">
+          <form action="">
+            <div class="log_in_form">
+              <label for="email2">email
+                <input type="email" name="email" id="email2">
+              </label>
+              <label for="password2">password
+                <input type="password" name="password" id="password2">
+              </label>
+              <button class="signup-button">Log in</button>
+              <div class="user_help">
+                <p><a href="#">forgot password</a></p>
+                <p class="js_sign_up_btn"><a href="#">Sign-up</a></p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+      <!--note that id a button is in a form, id does not run any js code attached to it, instead it tries to submit the form-->
+      <!--i removed the js_loginLink from the button in the form so that onclick of the button it doesn't go to the log in page
+      also the event.preventDefault() code below is not needed but i'll leave it-->
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll(".js_loginLink").forEach(item => {
+      item.addEventListener("click", () => {
+        event.preventDefault(); // Stop the button in the form from submitting the form and instead runs the codes below
+        document.getElementById('login_Link').click();
+        console.log('clicked');
+      });
+    });
+
+    //Or
+    // document.querySelectorAll(".js_loginLink").forEach(item => {
+    //   item.addEventListener("click", () => {
+    //       console.log('clicked');
+    //       window.location.href = "/log_in/index.html"; // Change this to your actual signup page URL
+    //   });
+    // });
+
+    // document.querySelector('.signin-button').addEventListener('click', () => {addStyle()});
+    // document.querySelector('.js_sign_up_btn').addEventListener('click', () => {addStyle()});
+    // document.querySelector('.js_log_btn2').addEventListener('click', () => {addStyle()});
+
+    // function addStyle() {
+    //   const buttonElement = document.querySelector('.js_log-in');
+    //   if(buttonElement.classList.contains('js_log-in_style')) {
+    //       buttonElement.classList.remove('js_log-in_style')
+    //   } else {
+    //     buttonElement.classList.add('js_log-in_style')
+    //   }
+    // }
+    // document.querySelector('.redirect-button').addEventListener("click", function() {
+    //         window.location.href = "/log_in/index.html"; // Change this to your desired page
+    //     });
+
+  </script>
+</body>
+</html>
